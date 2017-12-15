@@ -6,7 +6,7 @@
     <artifactId>skweb</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
-
+    <!-- test comment -->
     <name>skweb</name>
 
     <properties>
