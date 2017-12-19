@@ -8,6 +8,7 @@
  */
 package sk.web.config;
 
+import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -22,11 +23,14 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "sk.web")
+@ComponentScan(basePackages = "sk.web.*")
 public class StockManagerConfiguration {
+    
+    private static final Logger LOGGER = Logger.getLogger(StockManagerConfiguration.class);
     
     @Bean
     public ViewResolver viewResolver(){
+        LOGGER.info("Initializing viewResolver bean.");
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/WEB-INF/jsp/");
         viewResolver.setSuffix(".jsp");
